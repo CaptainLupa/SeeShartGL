@@ -43,11 +43,15 @@ namespace SeeShartGL.Common {
 		public void moveZ(float dZ) => position.Z += dZ;
 		public void setPos(Vector3 newPos) => position = newPos;
 		
-		public void rotate(Quaternion dQ) => rotation += dQ;
-		public void rotate(float dX, float dY, float dZ) => rotation += new Quaternion(Math.toRadians(dX), Math.toRadians(dY), Math.toRadians(dZ));
-		public void rotateZ(float dZ) => rotation += new Quaternion(0, 0, 1, Math.toRadians(dZ));
-		public void rotateY(float dZ) => rotation += new Quaternion(0, 1, 0, Math.toRadians(dZ));
-		public void rotateX(float dZ) => rotation += new Quaternion(1, 0, 0, Math.toRadians(dZ));
+		public void rotate(Quaternion dQ) => rotation = dQ * rotation;
+		public void rotate(float dX, float dY, float dZ) => rotation = new Quaternion(SSGLMath.toRadians(dX), SSGLMath.toRadians(dY), SSGLMath.toRadians(dZ)) * rotation;
+
+		public void rotateZ(float dZ) {
+			rotation = new Quaternion(0, 0, 1, SSGLMath.toRadians(dZ)) * rotation;
+		}
+
+		public void rotateY(float dZ) => rotation = new Quaternion(0, 1, 0, SSGLMath.toRadians(dZ)) * rotation;
+		public void rotateX(float dZ) => rotation = new Quaternion(1, 0, 0, SSGLMath.toRadians(dZ)) * rotation;
 	}
 
 }

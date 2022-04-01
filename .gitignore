@@ -1,8 +1,6 @@
 .idea/
-*.sln
 
 obj/
 bin/
-*.csproj
 
 SeeShartGL.sln.DotSettings.user
