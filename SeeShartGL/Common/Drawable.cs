@@ -18,16 +18,16 @@ namespace SeeShartGL.Common {
 		public abstract void enable();
 		public abstract void disable();
 
-		protected Drawable(float[] vertices) {
-			_mesh = new Mesh(vertices);
+		protected Drawable(Mesh mesh) {
 			_shader = new Shader("Shaders/shader.vert", "Shaders/shader.frag");
+			_mesh = mesh;
 			
 			_vao = GL.GenVertexArray();
 			GL.BindVertexArray(_vao);
 			
 			_vbo = GL.GenBuffer();
 			GL.BindBuffer(BufferTarget.ArrayBuffer, _vbo);
-			GL.BufferData(BufferTarget.ArrayBuffer, vertices.Length * sizeof(float), vertices, BufferUsageHint.StaticDraw);
+			GL.BufferData(BufferTarget.ArrayBuffer, _mesh.vertices.Length * sizeof(float), _mesh.vertices, BufferUsageHint.StaticDraw);
 
 			// Position
 			GL.VertexAttribPointer(0, 3, VertexAttribPointerType.Float, false, 8 * sizeof(float), 0);
@@ -40,13 +40,14 @@ namespace SeeShartGL.Common {
 			// Texture Coords
 			GL.VertexAttribPointer(2, 2, VertexAttribPointerType.Float, false, 8 * sizeof(float), 6 * sizeof(float));
 			GL.EnableVertexAttribArray(2);
-		}
 
-		protected Drawable(float[] vertices, uint[] indices): this(vertices) {
+			if (!_mesh.hasIndices) return;
+
 			_ebo = GL.GenBuffer();
 			GL.BindBuffer(BufferTarget.ElementArrayBuffer, _ebo);
-			GL.BufferData(BufferTarget.ElementArrayBuffer, indices.Length * sizeof(uint), indices, BufferUsageHint.StaticDraw);
+			GL.BufferData(BufferTarget.ElementArrayBuffer, _mesh.indices.Length * sizeof(uint), _mesh.indices, BufferUsageHint.StaticDraw);
 		}
+		
 	}
 
 }

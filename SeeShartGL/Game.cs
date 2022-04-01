@@ -1,15 +1,16 @@
 ﻿using System.Drawing;
+using OpenTK.Graphics.ES11;
 using OpenTK.Windowing.Common;
 using OpenTK.Windowing.Desktop;
 using OpenTK.Windowing.GraphicsLibraryFramework;
-
-using OpenTK.Graphics.OpenGL4;
 using SeeShartGL.Primitives;
+using ClearBufferMask = OpenTK.Graphics.OpenGL4.ClearBufferMask;
+using GL = OpenTK.Graphics.OpenGL4.GL;
 
 namespace SeeShartGL {
 
 	public class Game : GameWindow {
-		private Square tri;
+		private readonly Square tri;
 
 		public Game(GameWindowSettings gws, NativeWindowSettings nws) : base(gws, nws) {
 			tri = new Square();	
@@ -27,15 +28,21 @@ namespace SeeShartGL {
 			base.OnLoad();
 
 			GL.ClearColor(Color.Blue);
+			
+			tri.rotateZ(90);
 		}
 
 		protected override void OnRenderFrame(FrameEventArgs args) {
 			base.OnRenderFrame(args);
 			
 			GL.Clear(ClearBufferMask.ColorBufferBit);
+			
+			tri.rotateZ(20);
 
-			tri.useShader();
+			tri.update();
+
 			tri.enable();
+			tri.useShader();
 			tri.draw();
 
 			SwapBuffers();
