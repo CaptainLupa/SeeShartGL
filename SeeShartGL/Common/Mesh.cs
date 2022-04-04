@@ -2,19 +2,28 @@
 
 	public class Mesh {
 		// Includes position, color, and texture.
-		public readonly float[] vertices;
-		public readonly uint[] indices;
-		public readonly bool hasIndices;
+		private readonly float[] _vertices;
+		private readonly uint[]? _indices;
 
-		public Mesh(float[] v) {
-			vertices = v;
-			hasIndices = false;
+		protected Mesh(float[] v) {
+			_vertices = v;
 		}
 
-		public Mesh(float[] v, uint[] i) {
-			vertices = v;
-			indices = i;
-			hasIndices = true;
+		protected Mesh(float[] v, uint[]? i) {
+			_vertices = v;
+			_indices = i;
+		}
+
+		public bool hasIndices() {
+			return _indices != null;
+		}
+
+		public float[] vertices() {
+			return _vertices;
+		}
+
+		public uint[]? indices() {
+			return  _indices;
 		}
 	}
 

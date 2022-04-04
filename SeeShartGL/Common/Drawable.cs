@@ -3,9 +3,9 @@
 namespace SeeShartGL.Common {
 
 	public abstract class Drawable {
-		protected int _vbo, _vao, _ebo;
-		protected Shader _shader;
-		protected Mesh _mesh;
+		protected readonly int _vbo, _vao, _ebo;
+		protected readonly Shader _shader;
+		private readonly Mesh _mesh;
 		public abstract void draw();
 
 		public void useShader() {
@@ -27,7 +27,7 @@ namespace SeeShartGL.Common {
 			
 			_vbo = GL.GenBuffer();
 			GL.BindBuffer(BufferTarget.ArrayBuffer, _vbo);
-			GL.BufferData(BufferTarget.ArrayBuffer, _mesh.vertices.Length * sizeof(float), _mesh.vertices, BufferUsageHint.StaticDraw);
+			GL.BufferData(BufferTarget.ArrayBuffer, _mesh.vertices().Length * sizeof(float), _mesh.vertices(), BufferUsageHint.StaticDraw);
 
 			// Position
 			GL.VertexAttribPointer(0, 3, VertexAttribPointerType.Float, false, 8 * sizeof(float), 0);
@@ -41,11 +41,12 @@ namespace SeeShartGL.Common {
 			GL.VertexAttribPointer(2, 2, VertexAttribPointerType.Float, false, 8 * sizeof(float), 6 * sizeof(float));
 			GL.EnableVertexAttribArray(2);
 
-			if (!_mesh.hasIndices) return;
+			if (!_mesh.hasIndices()) return;
 
 			_ebo = GL.GenBuffer();
 			GL.BindBuffer(BufferTarget.ElementArrayBuffer, _ebo);
-			GL.BufferData(BufferTarget.ElementArrayBuffer, _mesh.indices.Length * sizeof(uint), _mesh.indices, BufferUsageHint.StaticDraw);
+			
+			GL.BufferData(BufferTarget.ElementArrayBuffer, _mesh.indices().Length * sizeof(uint), _mesh.indices(), BufferUsageHint.StaticDraw);
 		}
 		
 	}

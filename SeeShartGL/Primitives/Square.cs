@@ -21,10 +21,6 @@ namespace SeeShartGL.Primitives {
 			GL.BindVertexArray(0);
 			GL.BindBuffer(BufferTarget.ElementArrayBuffer, 0);
 		}
-
-		public override void update() {
-			base.update();
-		}
 	}
 
 }

@@ -3,7 +3,7 @@ using static SeeShartGL.Common.SSGLMath;
 
 namespace SeeShartGL.Common.Scene {
 
-    public abstract class SceneNode {
+    public abstract class SceneNode: Drawable {
 
         protected Matrix4 modelMat;
         protected Vector3 position;
@@ -13,7 +13,7 @@ namespace SeeShartGL.Common.Scene {
         protected Matrix4 scaleMat;
         protected Matrix4 transMat;
 
-        protected SceneNode() {
+        protected SceneNode(Mesh mesh): base(mesh) {
             position = Vector3.Zero;
             scale    = Vector3.One;
             rotation = Quaternion.Identity;

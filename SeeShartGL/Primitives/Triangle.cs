@@ -18,10 +18,6 @@ namespace SeeShartGL.Primitives {
 		public override void disable() {
 			GL.BindVertexArray(0);
 		}
-
-		public override void update() {
-			base.update();
-		}
 	}
 
 }

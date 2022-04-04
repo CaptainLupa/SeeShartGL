@@ -3,7 +3,7 @@ namespace SeeShartGL.Common.Scene {
 
     public abstract class SceneBase {
 
-        protected List<GameObject> objects;
+        protected List<SceneNode> objects;
 
         public void update() {
             foreach (var v in objects) {
