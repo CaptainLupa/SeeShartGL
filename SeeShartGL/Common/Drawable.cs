@@ -46,7 +46,7 @@ namespace SeeShartGL.Common {
 			_ebo = GL.GenBuffer();
 			GL.BindBuffer(BufferTarget.ElementArrayBuffer, _ebo);
 			
-			GL.BufferData(BufferTarget.ElementArrayBuffer, _mesh.indices().Length * sizeof(uint), _mesh.indices(), BufferUsageHint.StaticDraw);
+			GL.BufferData(BufferTarget.ElementArrayBuffer, _mesh.indices()!.Length * sizeof(uint), _mesh.indices(), BufferUsageHint.StaticDraw);
 		}
 		
 	}
