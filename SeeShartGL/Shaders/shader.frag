@@ -1,4 +1,4 @@
-#version 440 core
+#version 410 core
 
 in vec3 oColor;
 in vec2 oTextureCoordinates;

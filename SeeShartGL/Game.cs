@@ -36,8 +36,6 @@ namespace SeeShartGL {
 			base.OnRenderFrame(args);
 			
 			GL.Clear(ClearBufferMask.ColorBufferBit);
-			
-			tri.rotateZ(20);
 
 			tri.update();
 
