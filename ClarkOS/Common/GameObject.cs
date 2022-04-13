@@ -1,8 +1,8 @@
-﻿using OpenTK.Mathematics;
-using SeeShartGL.Common.Scene;
-using static SeeShartGL.Common.SSGLMath;
+﻿using ClarkOS.Common.Scene;
+using OpenTK.Mathematics;
+using static ClarkOS.Common.SSGLMath;
 
-namespace SeeShartGL.Common {
+namespace ClarkOS.Common {
 
     public abstract class GameObject : SceneNode {
         private SceneBase _parentScene;

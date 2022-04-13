@@ -1,9 +1,9 @@
-﻿using OpenTK.Graphics.OpenGL4;
-using SeeShartGL.Common;
-using SeeShartGL.Common.Meshes;
-using SeeShartGL.Common.Scene;
+﻿using ClarkOS.Common;
+using ClarkOS.Common.Meshes;
+using ClarkOS.Common.Scene;
+using OpenTK.Graphics.OpenGL4;
 
-namespace SeeShartGL.Primitives {
+namespace ClarkOS.Primitives {
 
 	public class Triangle: GameObject {
 		public Triangle(SceneBase ps) : base(ps, new TriangleMesh()) { }

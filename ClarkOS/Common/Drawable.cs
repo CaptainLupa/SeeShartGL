@@ -1,6 +1,6 @@
 ﻿using OpenTK.Graphics.OpenGL4;
 
-namespace SeeShartGL.Common {
+namespace ClarkOS.Common {
 
 	public abstract class Drawable {
 		protected readonly int _vbo, _vao, _ebo;

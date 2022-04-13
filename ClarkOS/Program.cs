@@ -1,9 +1,9 @@
 ﻿using OpenTK.Mathematics;
 using OpenTK.Windowing.Common;
 using OpenTK.Windowing.Desktop;
-using SeeShartGL.Common;
+using ClarkOS.Common;
 
-namespace SeeShartGL {
+namespace ClarkOS {
 
 	public class Program{
 		static void Main() {

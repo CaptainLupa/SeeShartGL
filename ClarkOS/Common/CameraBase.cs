@@ -1,8 +1,8 @@
+using ClarkOS.Common.Meshes;
+using ClarkOS.Common.Scene;
 using OpenTK.Mathematics;
-using SeeShartGL.Common.Meshes;
-using SeeShartGL.Common.Scene;
 
-namespace SeeShartGL.Common {
+namespace ClarkOS.Common {
 
     public abstract class CameraBase: SceneNode {
 

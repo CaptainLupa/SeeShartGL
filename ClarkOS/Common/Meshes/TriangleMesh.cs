@@ -1,4 +1,4 @@
-﻿namespace SeeShartGL.Common.Meshes {
+﻿namespace ClarkOS.Common.Meshes {
 
 	public class TriangleMesh: Mesh {
 		public TriangleMesh() : base(new [] {

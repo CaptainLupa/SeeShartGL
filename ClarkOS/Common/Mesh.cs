@@ -1,4 +1,4 @@
-﻿namespace SeeShartGL.Common {
+﻿namespace ClarkOS.Common {
 
 	public class Mesh {
 		// Includes position, color, and texture.

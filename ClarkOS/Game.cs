@@ -1,14 +1,14 @@
 ﻿using System.Drawing;
+using ClarkOS.Common.Scene;
+using ClarkOS.Primitives;
 using OpenTK.Graphics.ES11;
 using OpenTK.Windowing.Common;
 using OpenTK.Windowing.Desktop;
 using OpenTK.Windowing.GraphicsLibraryFramework;
-using SeeShartGL.Common.Scene;
-using SeeShartGL.Primitives;
 using ClearBufferMask = OpenTK.Graphics.OpenGL4.ClearBufferMask;
 using GL = OpenTK.Graphics.OpenGL4.GL;
 
-namespace SeeShartGL {
+namespace ClarkOS {
 
 	public class Game : GameWindow {
 		private readonly Square tri;

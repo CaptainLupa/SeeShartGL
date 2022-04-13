@@ -2,7 +2,7 @@
 using OpenTK.Graphics.OpenGL4;
 using OpenTK.Mathematics;
 
-namespace SeeShartGL.Common {
+namespace ClarkOS.Common {
 
 	public class Shader {
 		// ReSharper disable once InconsistentNaming

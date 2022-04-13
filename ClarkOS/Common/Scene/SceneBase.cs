@@ -1,5 +1,5 @@
 
-namespace SeeShartGL.Common.Scene {
+namespace ClarkOS.Common.Scene {
 
     public abstract class SceneBase {
 

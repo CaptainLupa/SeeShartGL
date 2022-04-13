@@ -1,6 +1,6 @@
 ﻿using OpenTK.Mathematics;
 
-namespace SeeShartGL.Common {
+namespace ClarkOS.Common {
 
 	public static class SSGLMath {
 		public static float toRadians(float v) {

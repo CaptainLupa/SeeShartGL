@@ -1,7 +1,7 @@
 using OpenTK.Mathematics;
-using static SeeShartGL.Common.SSGLMath;
+using static ClarkOS.Common.SSGLMath;
 
-namespace SeeShartGL.Common.Scene {
+namespace ClarkOS.Common.Scene {
 
     public abstract class SceneNode: Drawable {
 
