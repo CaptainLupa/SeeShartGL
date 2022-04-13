@@ -6,6 +6,8 @@ namespace SeeShartGL.Common.Scene {
     public abstract class SceneNode: Drawable {
 
         protected Matrix4 modelMat;
+        protected Matrix4 perspectiveMat;
+        protected Matrix4 viewMat;
         protected Vector3 position;
         protected Quaternion rotation;
         protected Matrix4 rotMat;

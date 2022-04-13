@@ -3,6 +3,7 @@ using OpenTK.Graphics.ES11;
 using OpenTK.Windowing.Common;
 using OpenTK.Windowing.Desktop;
 using OpenTK.Windowing.GraphicsLibraryFramework;
+using SeeShartGL.Common.Scene;
 using SeeShartGL.Primitives;
 using ClearBufferMask = OpenTK.Graphics.OpenGL4.ClearBufferMask;
 using GL = OpenTK.Graphics.OpenGL4.GL;
@@ -11,9 +12,13 @@ namespace SeeShartGL {
 
 	public class Game : GameWindow {
 		private readonly Square tri;
+		private readonly DefaultScene scene;
+		private static float _aspectRatio;
 
 		public Game(GameWindowSettings gws, NativeWindowSettings nws) : base(gws, nws) {
-			tri = new Square();	
+			scene = new DefaultScene();
+			tri = new Square(scene);
+			scene.addObject(tri);
 		}
 
 		protected override void OnUpdateFrame(FrameEventArgs args) {
@@ -51,12 +56,15 @@ namespace SeeShartGL {
 		protected override void OnResize(ResizeEventArgs e) {
 			GL.Viewport(0, 0, e.Width, e.Height);
 			base.OnResize(e);
+			_aspectRatio = e.Width / e.Height;
+		}
+
+		public static float getAspectRatio() {
+			return _aspectRatio;
 		}
 
 		protected override void OnUnload() {
 			base.OnUnload();
-			
-			
 		}
 	}
 

@@ -7,7 +7,7 @@ namespace SeeShartGL.Common {
     public abstract class CameraBase: SceneNode {
 
         private float _fov;
-        private Matrix4 _prespectiveMat;
+        private Matrix4 _perspectiveMat;
 
         public CameraBase(float fov) : base(new NullMesh()) {
             _fov = fov;
@@ -22,11 +22,15 @@ namespace SeeShartGL.Common {
         }
 
         public Matrix4 perspectiveMat() {
-            return _prespectiveMat;
+            update();
+            return _perspectiveMat;
         }
 
-        
+        public override void update() {
+            base.update();
 
+            _perspectiveMat = Matrix4.CreatePerspectiveFieldOfView(_fov, Game.getAspectRatio(), 0.1f, 1000);
+        }
     }
 
 }

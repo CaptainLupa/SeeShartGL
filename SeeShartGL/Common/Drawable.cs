@@ -18,8 +18,8 @@ namespace SeeShartGL.Common {
 		public abstract void enable();
 		public abstract void disable();
 
-		protected Drawable(Mesh mesh) {
-			_shader = new Shader("Shaders/shader.vert", "Shaders/shader.frag");
+		protected Drawable(Mesh mesh, string vertPath = "Shaders/shader.vert", string fragPath = "Shaders/shader.frag") {
+			_shader = new Shader(vertPath, fragPath);
 			_mesh = mesh;
 			
 			_vao = GL.GenVertexArray();
